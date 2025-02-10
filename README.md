@@ -1,36 +1,181 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Social Frontend
 
-## Getting Started
+Đây là frontend của ứng dụng mạng xã hội, được xây dựng với **Next.js**, **TypeScript**, và **Tailwind CSS**.
 
-First, run the development server:
+## Tính năng
+
+- Hiển thị bài viết, bình luận, lượt thích
+- Chat, group chat
+- Hỗ trợ xác thực người dùng (JWT & Firebase)
+- Giao diện responsive
+- Tích hợp API AI
+- Websocket để cập nhật nội dung theo thời gian thực
+
+## Công nghệ sử dụng
+
+- **Next.js** (App Router)
+- **TypeScript**
+- **Tailwind CSS**
+- **SCSS**
+- **ShadCN UI**
+- **MUI (Material UI)**
+- **Ant Design**
+- **Firebase Authentication**
+- **Websocket**
+- **Axios & SWR** (gọi API RESTful)
+
+## Hướng dẫn cài đặt
+
+### Yêu cầu
+
+- Node.js
+- npm 
+- Next.js (cài đặt qua npm)
+
+### Cài đặt
+
+1. Clone dự án:
+
+   ```bash
+   git clone https://github.com/huit-friends/social-website-frontend.git
+   cd social-website-frontend
+   ```
+
+2. Cài đặt dependencies:
+
+   ```bash
+   npm install -f
+   ```
+
+3. Sao chép file `.env.example` thành `.env.local` và cập nhật các giá trị phù hợp.
+
+4. Chạy project ở chế độ development:
+
+   ```bash
+   npm run dev
+   ```
+
+   Server sẽ chạy tại `http://localhost:3000`
+
+### Build production
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Kiểm tra lỗi (sửa lỗi và các cảnh báo trước khi push code)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run lint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Quy ước đặt tên
 
-## Learn More
+- Biến, hàm: `camelCase`
+- Component: `PascalCase`
+- Thư mục, file: `kebab-case`
+- Hằng số: `UPPER_CASE`
 
-To learn more about Next.js, take a look at the following resources:
+## Cấu trúc thư mục
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```text
+Directory structure:
+└── trhgatu-social-website-frontend/
+    ├── README.md
+    ├── components.json
+    ├── eslint.config.mjs
+    ├── next.config.ts
+    ├── package.json
+    ├── postcss.config.mjs
+    ├── tailwind.config.ts
+    ├── tsconfig.json
+    ├── api-client/
+    │   ├── axios-client.ts
+    │   └── index.ts
+    ├── models/
+    │   ├── common.ts
+    │   └── index.ts
+    ├── public/
+    └── src/
+        ├── app/
+        │   ├── globals.css
+        │   ├── layout.tsx
+        │   ├── routes.ts
+        │   ├── (auth)/
+        │   │   ├── layout.tsx
+        │   │   ├── login/
+        │   │   │   └── page.tsx
+        │   │   └── register/
+        │   │       └── page.tsx
+        │   ├── (main)/
+        │   │   ├── layout.tsx
+        │   │   ├── about/
+        │   │   │   ├── index.tsx
+        │   │   │   └── page.tsx
+        │   │   └── home/
+        │   │       ├── index.tsx
+        │   │       └── page.tsx
+        │   └── admin/
+        │       ├── layout.tsx
+        │       └── dashboard/
+        │           ├── index.tsx
+        │           └── page.tsx
+        ├── components/
+        │   ├── theme-provider.tsx
+        │   ├── toggle-theme.tsx
+        │   └── ui/
+        │       ├── button.tsx
+        │       └── dropdown-menu.tsx
+        ├── lib/
+        │   └── utils.ts
+        └── shared/
+            └── layouts/
+                ├── index.tsx
+                ├── admin/
+                │   ├── footer.tsx
+                │   ├── header.tsx
+                │   ├── index.tsx
+                │   └── sidebar.tsx
+                ├── auth/
+                │   └── index.tsx
+                ├── empty/
+                │   └── index.tsx
+                └── main/
+                    ├── footer.tsx
+                    ├── header.tsx
+                    └── index.tsx
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+## Quy trình làm việc
 
-## Deploy on Vercel
+### 1. Tạo branch mới từ `develop`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+git checkout -b branch-name
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 2. Thêm file vào staged
+
+```bash
+git add file-name
+```
+
+hoặc thêm tất cả file:
+
+```bash
+git add .
+```
+
+### 3. Commit thay đổi
+
+```bash
+git commit -m "feat(component): thêm tính năng mới"
+```
+
+### 4. Push code lên remote
+
+```bash
+git push origin branch-name
+```
+
