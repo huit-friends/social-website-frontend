@@ -81,7 +81,7 @@ npm run lint
 
 ```text
 Directory structure:
-└── trhgatu-social-website-frontend/
+└── huit-friends-social-website-frontend/
     ├── README.md
     ├── components.json
     ├── eslint.config.mjs
