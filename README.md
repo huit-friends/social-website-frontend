@@ -47,7 +47,7 @@
    npm install -f
    ```
 
-3. Sao chép file `.env.example` thành `.env.local` và cập nhật các giá trị phù hợp.
+3. Sao chép file `.env.example` thành `.env` và cập nhật các giá trị phù hợp.
 
 4. Chạy project ở chế độ development:
 
