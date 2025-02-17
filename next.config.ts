@@ -6,22 +6,22 @@ const nextConfig: NextConfig = {
       {
         source: '/',
         destination: '/home',
-        permanent: true
+        permanent: true,
       },
-      {
-        source: '/admin',
-        destination: '/admin/dashboard',
-        permanent: true
-      }
-
-    ]
+    ];
   },
+  reactStrictMode: false,
   images: {
-    remotePatterns :[
+    remotePatterns: [
       {
         protocol: "https",
         hostname: "avatar.iran.liara.run",
         pathname: "/public/**"
+      },
+      {
+        protocol: "https",
+        hostname : "picsum.photos",
+        pathname: "/200/**"
       }
     ]
   }
